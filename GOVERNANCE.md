@@ -58,6 +58,8 @@ That document is the authoritative source for:
 
 All contributors and AI agents **must** read PHASES.md and restrict work to the active phase unless a maintainer has given explicit authorization otherwise.
 
+Within the active phase, work proceeds one **work unit** at a time — see **[docs/WORK_UNITS.md](docs/WORK_UNITS.md)** for the Phase → Work Unit → Deliverable → Verification → Approval → Next Work Unit mechanism, dependency rules, and the current next eligible unit. This does not add a second phase system; it sequences the existing phase's scope into small, verifiable increments.
+
 ## Security, Integrity, and No-Fake-Implementation
 
 Because LifeSync handles highly sensitive personal information, the project enforces a strict **Security, Integrity, and No-Fake-Implementation Policy**.

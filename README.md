@@ -43,6 +43,7 @@ High-level checklist:
 - [Governance](GOVERNANCE.md)
 - [Development Phases](PHASES.md)
 - [Phase 1 Decision Register](docs/PHASE1_DECISIONS.md) ← **start here for Phase 1 work**
+- [Work Units (current next eligible unit)](docs/WORK_UNITS.md) ← **then check here for the specific unit to work on**
 - [Architecture Decision Records](docs/adr/)
 - [Security, Integrity & No-Fake-Implementation Policy](SECURITY_INTEGRITY.md) ← mandatory before any implementation
 - [Security Policy](SECURITY.md) (vulnerability reporting)

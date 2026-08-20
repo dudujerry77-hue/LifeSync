@@ -119,6 +119,8 @@
 
 ## Decision order (recommended)
 
+This order is operationalized as a concrete, dependency-checked work unit sequence in **[docs/WORK_UNITS.md](WORK_UNITS.md)** — consult that document to find the current next eligible unit rather than re-deriving it from this list.
+
 Suggested sequence for proposals (not mandatory, but reduces rework):
 
 1. D6 Threat model (draft can evolve with D4/D5) — **ADR-0001 Proposed**

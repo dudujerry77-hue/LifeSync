@@ -14,19 +14,23 @@ Maintainers declare the active phase. Agents and contributors **must** restrict 
 
 **Phase 1 decision control:** Required Phase 1 decisions are listed in [docs/PHASE1_DECISIONS.md](docs/PHASE1_DECISIONS.md). Significant decisions must be recorded as ADRs under [docs/adr/](docs/adr/). **Do not implement product code that depends on an unresolved decision.**
 
+**Work units within the active phase:** A phase is worked through one small **work unit** at a time — see **[docs/WORK_UNITS.md](docs/WORK_UNITS.md)**. That document defines the Phase → Work Unit → Deliverable → Verification → Approval → Next Work Unit hierarchy and, for Phase 1, the concrete current work-unit sequence and next eligible unit. This section (below) still defines each phase's overall scope and exit criteria; docs/WORK_UNITS.md sequences that scope into small, individually verifiable steps.
+
 ---
 
 ## How an AI Agent Must Use This Document
 
-1. Read this file, `GOVERNANCE.md`, **`SECURITY_INTEGRITY.md`**, and (for Phase 1) **`docs/PHASE1_DECISIONS.md`** before starting any substantial work.
+1. Read this file, `GOVERNANCE.md`, **`SECURITY_INTEGRITY.md`**, and (for Phase 1) **`docs/PHASE1_DECISIONS.md`** and **`docs/WORK_UNITS.md`** before starting any substantial work.
 2. Identify the **current (active) phase**.
 3. Only perform work that belongs to the active phase (or is listed as allowed preparatory work).
-4. Do **not** implement features, architecture, or scope belonging to later phases unless a maintainer has explicitly authorized it.
-5. For Phase 1: do **not** invent or silently assume technology stack, data model, vault design, auth approach, or other decisions listed as Unresolved in `docs/PHASE1_DECISIONS.md`. Propose ADRs; wait for maintainer approval before treating a decision as established.
-6. When proposing or completing work, state which phase it belongs to and how it satisfies (or moves toward) the phase’s verification and exit criteria — using only honest states (Planned / Implemented / Tested / Verified) and concrete evidence for Verified claims.
-7. Do not advance the phase yourself. Report readiness against exit criteria; a maintainer decides advancement and updates the “Current phase” declaration.
-8. Respect the project principles in `GOVERNANCE.md` (especially privacy & user ownership first) and the mandatory rules in `SECURITY_INTEGRITY.md` at every phase.
-9. Never fake implementations, bypass security controls, invent capabilities, or claim verification without evidence.
+4. Within the active phase, identify the **next eligible work unit** per `docs/WORK_UNITS.md` and work only on that unit — do not treat the phase's whole scope as one task.
+5. Do **not** implement features, architecture, or scope belonging to later phases unless a maintainer has explicitly authorized it.
+6. For Phase 1: do **not** invent or silently assume technology stack, data model, vault design, auth approach, or other decisions listed as Unresolved in `docs/PHASE1_DECISIONS.md`. Propose ADRs; wait for maintainer approval before treating a decision as established.
+7. When proposing or completing work, state which phase and which work unit it belongs to, and how it satisfies (or moves toward) that unit's exit criteria and the phase's verification/exit criteria — using only honest states (Planned / Implemented / Tested / Verified) and concrete evidence for Verified claims.
+8. Stop at the work-unit boundary: do not continue into the next work unit in the same pass unless it is marked Independent of the one just completed, and do not proceed past a unit whose "maintainer approval required" field is Yes until that approval is recorded.
+9. Do not advance the phase yourself. Report readiness against exit criteria; a maintainer decides advancement and updates the “Current phase” declaration.
+10. Respect the project principles in `GOVERNANCE.md` (especially privacy & user ownership first) and the mandatory rules in `SECURITY_INTEGRITY.md` at every phase.
+11. Never fake implementations, bypass security controls, invent capabilities, or claim verification without evidence.
 
 ---
 
@@ -74,6 +78,8 @@ Maintainers declare the active phase. Agents and contributors **must** restrict 
 
 **Status:** ACTIVE  
 **Objective:** Establish the technical and privacy foundations required before any user-facing continuity workflows: core data model concepts, encrypted personal vault approach, identity/auth basics, and project scaffolding that respects privacy-first principles.
+
+**Work units:** This phase's scope below is executed one work unit at a time via **[docs/WORK_UNITS.md](docs/WORK_UNITS.md)**, which tracks the current next eligible unit. Consult it before starting work.
 
 ### Capabilities / features gained
 - Defined (documented) core data model oriented around personal continuity entities
@@ -279,3 +285,4 @@ Maintainers declare the active phase. Agents and contributors **must** restrict 
 - This phase system does **not** replace GOVERNANCE.md, the Code of Conduct, SECURITY.md, or SECURITY_INTEGRITY.md.
 - Significant architectural or privacy decisions still follow the “Significant changes” process in GOVERNANCE.md and are recorded as ADRs in docs/adr/.
 - The phase system constrains *scope and sequencing*; SECURITY_INTEGRITY.md constrains *honesty, security, and verification* of all work. Neither overrides the other; both apply.
+- **docs/WORK_UNITS.md** does not replace or compete with this phase system either — it subdivides whichever phase is active into small, individually verifiable work units (see that document for the full mechanism). When a later phase becomes ACTIVE, its work-unit sequence is added to docs/WORK_UNITS.md following the same template; it is not defined in advance.

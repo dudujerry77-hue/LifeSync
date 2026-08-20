@@ -20,6 +20,9 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). By participati
 4. **ADRs** — [docs/adr/](docs/adr/)  
    Significant decisions use the ADR template and process. Only maintainers Accept ADRs.
 
+5. **Work Units** — [docs/WORK_UNITS.md](docs/WORK_UNITS.md)  
+   Work inside the active phase proceeds one small, dependency-checked work unit at a time. Identify the next eligible unit before starting; do not work on a unit whose dependencies (previous units, Accepted ADRs, maintainer approval) are not yet satisfied.
+
 AI coding agents **must** follow these documents before implementing any phase work or feature.
 
 ## How to Contribute
