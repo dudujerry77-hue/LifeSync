@@ -4,7 +4,7 @@
 
 LifeSync is a digital twin for ordinary life — health records, finances, documents, relationships, skills, preferences, and daily logistics — designed so that critical information stays under your control and the boring coordination work gets lighter.
 
-> This repository is in early stages. Governance, contribution guidelines, security policy, and a formal development phase system are in place. Core product development is just beginning (Phase 1).
+> This repository is in early stages. Governance, contribution guidelines, security policy, integrity policy, and a formal development phase system are in place. Core product development is just beginning (Phase 1).
 
 ## Vision
 
@@ -39,14 +39,15 @@ High-level checklist (mirrors the phase system):
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributing Guide](CONTRIBUTING.md)
 - [Governance](GOVERNANCE.md)
-- [Development Phases](PHASES.md) ← **required reading for AI agents and contributors**
-- [Security Policy](SECURITY.md)
+- [Development Phases](PHASES.md) ← required for AI agents and contributors
+- [Security, Integrity & No-Fake-Implementation Policy](SECURITY_INTEGRITY.md) ← **mandatory before any implementation**
+- [Security Policy](SECURITY.md) (vulnerability reporting)
 - [License](LICENSE) (MIT)
 
 ## Getting Involved
 
-We welcome ideas, issues, and contributions. Please read the contributing guide, code of conduct, and **PHASES.md** before opening pull requests. Work should stay within the active phase unless maintainers authorize otherwise.
+We welcome ideas, issues, and contributions. Please read the contributing guide, code of conduct, **PHASES.md**, and **SECURITY_INTEGRITY.md** before opening pull requests. Work must stay within the active phase and must never present fake, untested, or unverified functionality as complete or secure.
 
 ---
 
-Built with the goal that almost everyone can love a tool that solves real, everyday continuity problems.
+Built with the goal that almost everyone can love a tool that solves real, everyday continuity problems — with real, secure, verifiable software.

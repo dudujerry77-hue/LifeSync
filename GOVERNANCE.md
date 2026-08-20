@@ -10,6 +10,7 @@ LifeSync aims to be a privacy-first personal continuity platform. This document 
 2. **Transparency** — major decisions and rationales should be documented publicly (issues, discussions, or RFCs).
 3. **Inclusivity** — we welcome contributors of all backgrounds and experience levels.
 4. **Sustainability** — the project should remain maintainable and respectful of contributor time.
+5. **Security, integrity, and no fake implementations** — real, secure, verifiable functionality only. See [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md).
 
 ## Roles
 
@@ -26,6 +27,7 @@ Maintainers have write access to the repository and are responsible for:
 - Upholding the Code of Conduct
 - Guiding technical and product direction within the project principles
 - Declaring the active development phase and confirming phase exit criteria (see [PHASES.md](PHASES.md))
+- Enforcing the Security, Integrity, and No-Fake-Implementation Policy (see [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md))
 
 Current maintainers are listed in the repository (initially the repository owner).
 
@@ -38,7 +40,7 @@ As the project grows, a small core team may be formed to handle long-term vision
 - **Everyday decisions** (bug fixes, small features, docs): Maintainers decide via PR review.
 - **Significant changes** (architecture, data model, privacy model, breaking changes): Prefer an RFC or design discussion issue. Aim for rough consensus among active maintainers.
 - **Governance or Code of Conduct changes**: Require explicit agreement from a majority of current maintainers and a public notice period.
-- **Phase advancement**: Only maintainers may declare that a phase’s exit criteria are met and that the next phase is active. The declaration must be recorded (typically by updating PHASES.md).
+- **Phase advancement**: Only maintainers may declare that a phase’s exit criteria are met and that the next phase is active. The declaration must be recorded (typically by updating PHASES.md). Exit criteria claims must satisfy the Verification Rule in [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md).
 
 ## Development Phases
 
@@ -53,6 +55,23 @@ That document is the authoritative source for:
 - Verification requirements and exit criteria for advancing
 
 All contributors and AI agents **must** read PHASES.md and restrict work to the active phase unless a maintainer has given explicit authorization otherwise.
+
+## Security, Integrity, and No-Fake-Implementation
+
+Because LifeSync handles highly sensitive personal information, the project enforces a strict **Security, Integrity, and No-Fake-Implementation Policy**.
+
+**Authoritative document:** [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md)
+
+Key obligations (full detail in that document):
+
+- Never fake, simulate, or falsely claim that functionality is implemented, secure, tested, integrated, or verified.
+- Every feature must have an honest state: Planned → Implemented → Tested → Verified.
+- Security must be considered before implementation, not after.
+- Claims of verification require concrete evidence.
+- Uncertainty must be labeled UNKNOWN / NOT VERIFIED; security/privacy ambiguity must be resolved before implementing.
+- Do not describe work as production-ready without the required testing, security review, and verification.
+
+All AI coding agents **must** read and follow SECURITY_INTEGRITY.md before implementing any phase work or feature. Maintainers will reject or require correction of work that violates this policy.
 
 ## Becoming a Maintainer
 

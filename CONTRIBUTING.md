@@ -6,14 +6,15 @@ Thank you for your interest in contributing to LifeSync! We welcome contribution
 
 Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold these standards.
 
-## Development Phases (required reading)
+## Mandatory Policies (read before any implementation)
 
-All work must respect the active development phase defined in **[PHASES.md](PHASES.md)**.
+1. **Development Phases** — [PHASES.md](PHASES.md)  
+   Work only within the active phase unless maintainers authorize otherwise.
 
-- Identify the current phase before starting.
-- Only implement work that belongs to that phase (or is explicitly allowed preparatory work).
-- Do not advance phases yourself; maintainers declare advancement after exit criteria are met.
-- AI coding agents must follow the same rules.
+2. **Security, Integrity, and No-Fake-Implementation** — [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md)  
+   Never fake implementations, bypass security controls, invent capabilities, or claim verification without evidence. Use honest feature states: Planned → Implemented → Tested → Verified.
+
+AI coding agents **must** follow both documents before implementing any phase work or feature.
 
 ## How to Contribute
 
@@ -22,6 +23,7 @@ All work must respect the active development phase defined in **[PHASES.md](PHAS
 - Search existing issues first to avoid duplicates.
 - Use the bug report template (when available).
 - Include steps to reproduce, expected vs actual behavior, environment details, and screenshots/logs if relevant.
+- Report security vulnerabilities privately per [SECURITY.md](SECURITY.md).
 
 ### Suggesting Features
 
@@ -33,11 +35,11 @@ All work must respect the active development phase defined in **[PHASES.md](PHAS
 ### Pull Requests
 
 1. Fork the repository and create a feature branch from `main`.
-2. Make your changes with clear, focused commits. State the phase the work belongs to.
-3. Add or update tests and documentation as needed.
+2. Make your changes with clear, focused commits. State the phase the work belongs to and the real implementation state (Planned / Implemented / Tested / Verified).
+3. Add or update tests and documentation as needed. **Run the tests** before claiming they pass.
 4. Ensure the code follows the project style (linting/formatting will be enforced once CI is set up).
-5. Open a Pull Request against `main` with a clear description of the change, the phase it serves, and linked issues.
-6. Be responsive to review feedback.
+5. Open a Pull Request against `main` with a clear description of the change, the phase it serves, linked issues, and honest status. Do not present stubs or UI-only work as complete features.
+6. Be responsive to review feedback. Maintainers will reject or require correction of work that violates SECURITY_INTEGRITY.md.
 
 ### Development Setup (placeholder)
 
@@ -45,10 +47,13 @@ Detailed local development instructions will be added as the project matures (pr
 
 - Prefer small, reviewable PRs.
 - Privacy, security, and data minimization are non-negotiable design principles.
+- Never hardcode secrets or disable security controls to “make it work.”
 
 ## Governance
 
-See [GOVERNANCE.md](GOVERNANCE.md) for how decisions are made and how maintainers are selected. See [PHASES.md](PHASES.md) for the phase system.
+See [GOVERNANCE.md](GOVERNANCE.md) for how decisions are made and how maintainers are selected.  
+See [PHASES.md](PHASES.md) for the phase system.  
+See [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md) for the mandatory integrity and security rules.
 
 ## License
 
