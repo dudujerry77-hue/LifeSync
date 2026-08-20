@@ -7,7 +7,7 @@ LifeSync aims to be a privacy-first personal continuity platform. This document 
 ## Principles
 
 1. **Privacy & user ownership first** — decisions that affect data handling, encryption, or third-party sharing require extra scrutiny.
-2. **Transparency** — major decisions and rationales should be documented publicly (issues, discussions, or RFCs).
+2. **Transparency** — major decisions and rationales should be documented publicly (issues, discussions, or RFCs/ADRs).
 3. **Inclusivity** — we welcome contributors of all backgrounds and experience levels.
 4. **Sustainability** — the project should remain maintainable and respectful of contributor time.
 5. **Security, integrity, and no fake implementations** — real, secure, verifiable functionality only. See [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md).
@@ -28,6 +28,7 @@ Maintainers have write access to the repository and are responsible for:
 - Guiding technical and product direction within the project principles
 - Declaring the active development phase and confirming phase exit criteria (see [PHASES.md](PHASES.md))
 - Enforcing the Security, Integrity, and No-Fake-Implementation Policy (see [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md))
+- Accepting or rejecting Architecture Decision Records (see [docs/adr/](docs/adr/))
 
 Current maintainers are listed in the repository (initially the repository owner).
 
@@ -38,7 +39,8 @@ As the project grows, a small core team may be formed to handle long-term vision
 ## Decision Making
 
 - **Everyday decisions** (bug fixes, small features, docs): Maintainers decide via PR review.
-- **Significant changes** (architecture, data model, privacy model, breaking changes): Prefer an RFC or design discussion issue. Aim for rough consensus among active maintainers.
+- **Significant changes** (architecture, data model, privacy model, security-sensitive design, breaking changes): Prefer an **Architecture Decision Record (ADR)** under [docs/adr/](docs/adr/) and/or a design discussion issue. Aim for rough consensus among active maintainers. A decision is **not established** until an ADR is **Accepted** (or an equivalent maintainer-recorded approval).
+- **Phase 1 required decisions:** Tracked in [docs/PHASE1_DECISIONS.md](docs/PHASE1_DECISIONS.md). Implementation that depends on an Unresolved decision must not treat that decision as settled.
 - **Governance or Code of Conduct changes**: Require explicit agreement from a majority of current maintainers and a public notice period.
 - **Phase advancement**: Only maintainers may declare that a phase’s exit criteria are met and that the next phase is active. The declaration must be recorded (typically by updating PHASES.md). Exit criteria claims must satisfy the Verification Rule in [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md).
 
@@ -72,6 +74,12 @@ Key obligations (full detail in that document):
 - Do not describe work as production-ready without the required testing, security review, and verification.
 
 All AI coding agents **must** read and follow SECURITY_INTEGRITY.md before implementing any phase work or feature. Maintainers will reject or require correction of work that violates this policy.
+
+## Architecture Decision Records
+
+Significant technical decisions are recorded as ADRs in **[docs/adr/](docs/adr/)**.  
+See that directory for process, status values, and template.  
+Phase 1 decision checklist: **[docs/PHASE1_DECISIONS.md](docs/PHASE1_DECISIONS.md)**.
 
 ## Becoming a Maintainer
 

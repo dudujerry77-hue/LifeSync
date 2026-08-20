@@ -2,24 +2,31 @@
 
 This document defines the ordered development phases for LifeSync. It is the authoritative source for what work is in scope at any time, what an AI coding agent (or human contributor) may do, and the criteria required to advance.
 
-**Current phase:** Phase 0 — Foundation (complete). The project is ready to enter Phase 1.
+**Current phase:** Phase 1 — Core Platform Foundations (**ACTIVE**)
+
+**Phase advancement record:**
+- Phase 0 (Foundation) exit criteria were met (governance files present, vision stated).
+- Phase 1 declared **ACTIVE** on 2026-08-20 by maintainer action (this commit), per Phase Advancement Rules.
 
 Maintainers declare the active phase. Agents and contributors **must** restrict work to the active phase (and any explicitly allowed preparatory work for the next phase). Advancing phases requires explicit maintainer confirmation that exit criteria are met.
 
 **Mandatory companion policy:** Before implementing any phase work or feature, every AI agent and contributor **must** read and follow [SECURITY_INTEGRITY.md](SECURITY_INTEGRITY.md) (Security, Integrity, and No-Fake-Implementation Policy). Phase exit criteria and status claims are subject to that policy’s Verification Rule and Core Rule.
 
+**Phase 1 decision control:** Required Phase 1 decisions are listed in [docs/PHASE1_DECISIONS.md](docs/PHASE1_DECISIONS.md). Significant decisions must be recorded as ADRs under [docs/adr/](docs/adr/). **Do not implement product code that depends on an unresolved decision.**
+
 ---
 
 ## How an AI Agent Must Use This Document
 
-1. Read this file, `GOVERNANCE.md`, and **`SECURITY_INTEGRITY.md`** before starting any substantial work.
+1. Read this file, `GOVERNANCE.md`, **`SECURITY_INTEGRITY.md`**, and (for Phase 1) **`docs/PHASE1_DECISIONS.md`** before starting any substantial work.
 2. Identify the **current (active) phase**.
 3. Only perform work that belongs to the active phase (or is listed as allowed preparatory work).
 4. Do **not** implement features, architecture, or scope belonging to later phases unless a maintainer has explicitly authorized it.
-5. When proposing or completing work, state which phase it belongs to and how it satisfies (or moves toward) the phase’s verification and exit criteria — using only honest states (Planned / Implemented / Tested / Verified) and concrete evidence for Verified claims.
-6. Do not advance the phase yourself. Report readiness against exit criteria; a maintainer decides advancement and updates the “Current phase” declaration.
-7. Respect the project principles in `GOVERNANCE.md` (especially privacy & user ownership first) and the mandatory rules in `SECURITY_INTEGRITY.md` at every phase.
-8. Never fake implementations, bypass security controls, invent capabilities, or claim verification without evidence.
+5. For Phase 1: do **not** invent or silently assume technology stack, data model, vault design, auth approach, or other decisions listed as Unresolved in `docs/PHASE1_DECISIONS.md`. Propose ADRs; wait for maintainer approval before treating a decision as established.
+6. When proposing or completing work, state which phase it belongs to and how it satisfies (or moves toward) the phase’s verification and exit criteria — using only honest states (Planned / Implemented / Tested / Verified) and concrete evidence for Verified claims.
+7. Do not advance the phase yourself. Report readiness against exit criteria; a maintainer decides advancement and updates the “Current phase” declaration.
+8. Respect the project principles in `GOVERNANCE.md` (especially privacy & user ownership first) and the mandatory rules in `SECURITY_INTEGRITY.md` at every phase.
+9. Never fake implementations, bypass security controls, invent capabilities, or claim verification without evidence.
 
 ---
 
@@ -32,6 +39,7 @@ Maintainers declare the active phase. Agents and contributors **must** restrict 
 - Public repository with clear vision and status
 - Lightweight but complete governance (roles, decision-making, CoC, security policy, license, integrity policy)
 - Contribution guidelines
+- Phase system and ADR/decision register structure
 
 ### Work that belongs to this phase
 - Repository creation and basic structure
@@ -58,12 +66,13 @@ Maintainers declare the active phase. Agents and contributors **must** restrict 
 - [x] Project vision and high-level status are stated
 - [x] Maintainers can begin Phase 1 work
 
-**Advancement:** Maintainers declare Phase 1 active.
+**Advancement:** Maintainers declared Phase 1 active (recorded 2026-08-20).
 
 ---
 
 ## Phase 1 — Core Platform Foundations
 
+**Status:** ACTIVE  
 **Objective:** Establish the technical and privacy foundations required before any user-facing continuity workflows: core data model concepts, encrypted personal vault approach, identity/auth basics, and project scaffolding that respects privacy-first principles.
 
 ### Capabilities / features gained
@@ -74,34 +83,37 @@ Maintainers declare the active phase. Agents and contributors **must** restrict 
 - Clear boundaries for what data is stored and how it is protected
 
 ### Work that belongs to this phase
-- Architecture and design discussions / RFCs for data model and vault
-- Scaffolding the application (language, framework, repo layout)
-- Implementing or prototyping the encrypted vault and core storage primitives
-- Basic auth / user identity (local-first or privacy-respecting options preferred)
-- Development environment documentation and minimal CI scaffolding
+- Architecture and design discussions / ADRs / RFCs for data model, vault, auth, stack, threat model, privacy model, testing strategy, and dev environment (see [docs/PHASE1_DECISIONS.md](docs/PHASE1_DECISIONS.md))
+- Scaffolding the application **only after** relevant decisions are Approved
+- Implementing or prototyping the encrypted vault and core storage primitives **only after** vault/encryption ADR is Approved
+- Basic auth / user identity **only after** auth ADR is Approved
+- Development environment documentation and minimal CI scaffolding **only after** stack/dev-environment decisions are Approved
 - Security and privacy threat modeling at the foundation level
 
 ### What an AI agent is allowed / expected to do
-- Propose and implement scaffolding, data-model documentation, and vault prototypes **within** the privacy-first constraints and SECURITY_INTEGRITY.md rules
+- Draft ADRs proposing options for unresolved Phase 1 decisions (do not mark them Accepted without maintainer approval)
+- Update the decision register status only to reflect real ADR progress (e.g., Proposed), not invented approvals
+- After a decision is Approved: implement scaffolding, documentation, and prototypes **within** that decision and SECURITY_INTEGRITY.md rules
 - Write tests for cryptographic and storage primitives and actually run them before claiming they pass
-- Update development setup docs
-- Open design issues / RFCs for significant choices
+- Update development setup docs consistent with approved decisions
 - **Not** implement full user-facing workflows, external integrations, or multi-user sharing beyond what is required to validate the vault
 - **Not** introduce third-party data sharing or analytics without explicit maintainer approval
 - **Not** fake vault/encryption behavior, hardcode secrets, or claim security properties without evidence
+- **Not** treat Unresolved decisions as settled
 
 ### Dependencies
 - Phase 0 complete
 
 ### Verification requirements
-- Documented core data model (entities relevant to personal continuity)
-- Working (or clearly prototyped) encrypted vault with tests that have been run
-- Development setup that a new contributor can follow
-- Privacy and security considerations recorded for the chosen approach
+- Documented core data model (entities relevant to personal continuity) with approved ADR
+- Working (or clearly prototyped) encrypted vault with tests that have been run, aligned to approved vault ADR
+- Development setup that a new contributor can follow, aligned to approved stack/dev ADRs
+- Privacy and security considerations recorded (threat model + privacy/data-handling model)
 - No regression of governance principles or integrity policy
 - All status claims obey SECURITY_INTEGRITY.md
 
 ### Exit criteria (all must be true)
+- [ ] Required Phase 1 decisions in docs/PHASE1_DECISIONS.md are Approved (or explicitly deferred with maintainer rationale)
 - [ ] Core data model is documented and reviewed by maintainers
 - [ ] Encrypted vault (or equivalent privacy-preserving storage) has a working prototype with tests that have actually been executed
 - [ ] Basic project scaffolding and local development instructions exist
@@ -265,5 +277,5 @@ Maintainers declare the active phase. Agents and contributors **must** restrict 
 ## Relationship to Other Governance
 
 - This phase system does **not** replace GOVERNANCE.md, the Code of Conduct, SECURITY.md, or SECURITY_INTEGRITY.md.
-- Significant architectural or privacy decisions still follow the “Significant changes” process in GOVERNANCE.md.
+- Significant architectural or privacy decisions still follow the “Significant changes” process in GOVERNANCE.md and are recorded as ADRs in docs/adr/.
 - The phase system constrains *scope and sequencing*; SECURITY_INTEGRITY.md constrains *honesty, security, and verification* of all work. Neither overrides the other; both apply.
