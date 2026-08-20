@@ -75,22 +75,22 @@
 
 | Field | Value |
 |-------|--------|
-| **Status** | Unresolved |
+| **Status** | **Proposed** |
 | **Description** | Foundation-level threat model: assets, adversaries, trust boundaries, priority threats for Phase 1 vault and identity |
 | **Why required before implementation** | Security-first development requires threats to be stated before building controls |
-| **ADR** | *(none yet)* — may be an ADR or a linked `docs/threat-model.md` accepted by maintainers |
-| **Required evidence for Approval** | Written threat model covering Phase 1 scope; mapped to D4/D5 controls at high level; maintainer Acceptance |
+| **ADR** | [ADR-0001](adr/0001-threat-model.md) (Status: **Proposed** — not Accepted) |
+| **Required evidence for Approval** | Written threat model covering Phase 1 scope; mapped to D4/D5 controls at high level; maintainer Acceptance of ADR-0001 |
 | **Required evidence after implementation** | Controls claimed in code are traceable to threats; unverified controls not claimed as Verified |
 
 ### D7 — Privacy / data-handling model
 
 | Field | Value |
 |-------|--------|
-| **Status** | Unresolved |
+| **Status** | **Proposed** |
 | **Description** | What data is collected/stored in Phase 1, minimization rules, retention/deletion intent, no third-party sharing default, user ownership statements |
 | **Why required before implementation** | Privacy-first principle must be operationalized before storing personal data |
-| **ADR** | *(none yet)* |
-| **Required evidence for Approval** | Written data-handling rules for Phase 1; explicit non-goals (e.g. no analytics); maintainer Acceptance |
+| **ADR** | [ADR-0002](adr/0002-privacy-data-handling-model.md) (Status: **Proposed** — not Accepted) |
+| **Required evidence for Approval** | Written data-handling rules for Phase 1; explicit non-goals (e.g. no analytics); maintainer Acceptance of ADR-0002 |
 | **Required evidence after implementation** | Implementation does not store categories outside the model; deletion path sketched or implemented as claimed |
 
 ### D8 — Testing strategy
@@ -121,8 +121,8 @@
 
 Suggested sequence for proposals (not mandatory, but reduces rework):
 
-1. D6 Threat model (draft can evolve with D4/D5)
-2. D7 Privacy / data-handling model
+1. D6 Threat model (draft can evolve with D4/D5) — **ADR-0001 Proposed**
+2. D7 Privacy / data-handling model — **ADR-0002 Proposed**
 3. D1 Technology stack
 4. D2 Repository / application architecture
 5. D9 Development / build environment
@@ -146,13 +146,14 @@ Auth skeleton should wait until D5 and D6 are Approved.
 | D3 | Core data model | Unresolved | — |
 | D4 | Vault / encryption architecture | Unresolved | — |
 | D5 | Authentication / identity approach | Unresolved | — |
-| D6 | Threat model | Unresolved | — |
-| D7 | Privacy / data-handling model | Unresolved | — |
+| D6 | Threat model | **Proposed** | [ADR-0001](adr/0001-threat-model.md) |
+| D7 | Privacy / data-handling model | **Proposed** | [ADR-0002](adr/0002-privacy-data-handling-model.md) |
 | D8 | Testing strategy | Unresolved | — |
 | D9 | Development / build environment | Unresolved | — |
 
-**Approved count:** 0 / 9
+**Approved count:** 0 / 9  
+**Proposed (awaiting maintainer review):** 2 / 9 (D6, D7)
 
 ---
 
-*Last updated: 2026-08-20 — register created; no decisions Approved.*
+*Last updated: 2026-08-20 — ADR-0001 and ADR-0002 added as Proposed; no decisions Approved.*

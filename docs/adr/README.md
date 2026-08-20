@@ -9,7 +9,7 @@ ADRs implement the “Significant changes” path in [GOVERNANCE.md](../../GOVER
 1. **Do not treat a decision as established until an ADR is Accepted** by a maintainer (status field updated and recorded in git history).
 2. ADRs must obey [SECURITY_INTEGRITY.md](../../SECURITY_INTEGRITY.md): no fake claims; uncertainties labeled UNKNOWN / NOT VERIFIED; security/privacy impact discussed honestly.
 3. Phase 1 required decisions are tracked in [PHASE1_DECISIONS.md](../PHASE1_DECISIONS.md). Each required decision should eventually link to one or more ADRs.
-4. Product implementation that depends on an Unresolved decision **must not** proceed as if the decision were settled.
+4. Product implementation that depends on an Unresolved or merely Proposed decision **must not** proceed as if the decision were settled.
 5. Superseded ADRs remain in the tree with status Superseded and a pointer to the replacement.
 
 ## Status values
@@ -39,6 +39,5 @@ ADRs implement the “Significant changes” path in [GOVERNANCE.md](../../GOVER
 
 | ADR | Title | Status |
 |-----|-------|--------|
-| *(none yet)* | | |
-
-When ADRs are added, update this table.
+| [0001](0001-threat-model.md) | Foundation Threat Model (D6) | Proposed |
+| [0002](0002-privacy-data-handling-model.md) | Privacy and Data-Handling Model (D7) | Proposed |
