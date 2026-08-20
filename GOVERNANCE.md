@@ -25,6 +25,7 @@ Maintainers have write access to the repository and are responsible for:
 - Triaging issues
 - Upholding the Code of Conduct
 - Guiding technical and product direction within the project principles
+- Declaring the active development phase and confirming phase exit criteria (see [PHASES.md](PHASES.md))
 
 Current maintainers are listed in the repository (initially the repository owner).
 
@@ -37,6 +38,21 @@ As the project grows, a small core team may be formed to handle long-term vision
 - **Everyday decisions** (bug fixes, small features, docs): Maintainers decide via PR review.
 - **Significant changes** (architecture, data model, privacy model, breaking changes): Prefer an RFC or design discussion issue. Aim for rough consensus among active maintainers.
 - **Governance or Code of Conduct changes**: Require explicit agreement from a majority of current maintainers and a public notice period.
+- **Phase advancement**: Only maintainers may declare that a phase’s exit criteria are met and that the next phase is active. The declaration must be recorded (typically by updating PHASES.md).
+
+## Development Phases
+
+The project progresses through ordered phases defined in **[PHASES.md](PHASES.md)**.
+
+That document is the authoritative source for:
+
+- The current (active) phase
+- What capabilities each phase is expected to deliver
+- What work belongs in each phase
+- What AI coding agents and contributors are allowed to do in the active phase
+- Verification requirements and exit criteria for advancing
+
+All contributors and AI agents **must** read PHASES.md and restrict work to the active phase unless a maintainer has given explicit authorization otherwise.
 
 ## Becoming a Maintainer
 
