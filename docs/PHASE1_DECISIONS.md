@@ -1,15 +1,16 @@
 # Phase 1 Decision Register
 
-**Phase status:** ACTIVE (see [PHASES.md](../PHASES.md))  
-**Purpose:** List every decision that must be made (or explicitly deferred) before Phase 1 implementation can proceed in a controlled, auditable way.
+**Phase status:** ACTIVE (see [PHASES.md](../PHASES.md))
+**Work units:** [PHASE1_WORK_UNITS.md](PHASE1_WORK_UNITS.md)
+**Purpose:** List every decision that must be made (or explicitly deferred) before dependent Phase 1 *implementation* work units can proceed.
 
 **Rules:**
 
 - Status values for each decision: **Unresolved** | **Proposed** (ADR exists, not Accepted) | **Approved** (ADR Accepted) | **Deferred** (maintainer explicitly postponed with rationale).
 - **No decision is Approved until a maintainer accepts a corresponding ADR** (or equivalent recorded governance action).
 - Agents must **not** invent or assume values for Unresolved decisions.
-- Agents may draft ADRs (status Proposed) for Unresolved items.
-- Product implementation that depends on a decision may begin only when that decision is **Approved**.
+- Agents may draft ADRs (status Proposed) for Unresolved items — one work unit at a time.
+- Product implementation that depends on a decision may begin only when that decision is **Approved** (see P1-WU10–WU12).
 - All claims remain subject to [SECURITY_INTEGRITY.md](../SECURITY_INTEGRITY.md).
 
 ---
@@ -21,6 +22,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | Unresolved |
+| **Work unit** | P1-WU03 |
 | **Description** | Primary language(s), runtime, major frameworks/libraries for application and tests |
 | **Why required before implementation** | Scaffolding, dependencies, and CI cannot be honest without a chosen stack |
 | **ADR** | *(none yet)* |
@@ -32,6 +34,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | Unresolved |
+| **Work unit** | P1-WU04 |
 | **Description** | High-level layout: monorepo vs multi-repo, module boundaries, client/server/local-first shape, where vault and UI live |
 | **Why required before implementation** | File layout and module boundaries must match an intentional structure |
 | **ADR** | *(none yet)* |
@@ -43,6 +46,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | Unresolved |
+| **Work unit** | P1-WU07 |
 | **Description** | Entities and relationships for personal continuity (what is stored conceptually: documents, events, people, health items, etc.) at a level sufficient for a vault prototype |
 | **Why required before implementation** | Storage and APIs must not invent an undeclared schema |
 | **ADR** | *(none yet)* |
@@ -54,6 +58,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | Unresolved |
+| **Work unit** | P1-WU08 |
 | **Description** | How personal data is protected at rest (and in transit if applicable): encryption approach, key hierarchy, what is encrypted vs not, client-side vs server-side trust assumptions |
 | **Why required before implementation** | Any vault prototype without an approved design risks fake or unsafe cryptography |
 | **ADR** | *(none yet)* |
@@ -65,6 +70,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | Unresolved |
+| **Work unit** | P1-WU09 |
 | **Description** | How a user is identified and authenticated for Phase 1 (local-only, password, passkeys, external IdP, etc.) consistent with privacy-first preference |
 | **Why required before implementation** | Auth skeleton must not invent an undeclared identity model |
 | **ADR** | *(none yet)* |
@@ -76,6 +82,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | **Proposed** |
+| **Work unit** | P1-WU01 (Waiting for maintainer) |
 | **Description** | Foundation-level threat model: assets, adversaries, trust boundaries, priority threats for Phase 1 vault and identity |
 | **Why required before implementation** | Security-first development requires threats to be stated before building controls |
 | **ADR** | [ADR-0001](adr/0001-threat-model.md) (Status: **Proposed** — not Accepted) |
@@ -87,6 +94,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | **Proposed** |
+| **Work unit** | P1-WU02 (Waiting for maintainer) |
 | **Description** | What data is collected/stored in Phase 1, minimization rules, retention/deletion intent, no third-party sharing default, user ownership statements |
 | **Why required before implementation** | Privacy-first principle must be operationalized before storing personal data |
 | **ADR** | [ADR-0002](adr/0002-privacy-data-handling-model.md) (Status: **Proposed** — not Accepted) |
@@ -98,6 +106,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | Unresolved |
+| **Work unit** | P1-WU06 |
 | **Description** | How Phase 1 work will be tested (unit/integration, crypto tests, what “tests have been run” means in CI vs local) |
 | **Why required before implementation** | Verification Rule requires a real plan for evidence |
 | **ADR** | *(none yet)* |
@@ -109,6 +118,7 @@
 | Field | Value |
 |-------|--------|
 | **Status** | Unresolved |
+| **Work unit** | P1-WU05 |
 | **Description** | How developers (and agents) build, run, and test locally; toolchain versions; env var / secret conventions (no secrets in git) |
 | **Why required before implementation** | Reproducible setup is required for honest verification by others |
 | **ADR** | *(none yet)* |
@@ -119,41 +129,43 @@
 
 ## Decision order (recommended)
 
-Suggested sequence for proposals (not mandatory, but reduces rework):
+Aligned with [PHASE1_WORK_UNITS.md](PHASE1_WORK_UNITS.md):
 
-1. D6 Threat model (draft can evolve with D4/D5) — **ADR-0001 Proposed**
-2. D7 Privacy / data-handling model — **ADR-0002 Proposed**
-3. D1 Technology stack
-4. D2 Repository / application architecture
-5. D9 Development / build environment
-6. D8 Testing strategy
-7. D3 Core data model
-8. D4 Vault / encryption architecture
-9. D5 Authentication / identity approach
+1. D6 Threat model — **ADR-0001 Proposed** (P1-WU01)
+2. D7 Privacy / data-handling model — **ADR-0002 Proposed** (P1-WU02)
+3. D1 Technology stack (P1-WU03 — next eligible)
+4. D2 Repository / application architecture (P1-WU04)
+5. D9 Development / build environment (P1-WU05)
+6. D8 Testing strategy (P1-WU06)
+7. D3 Core data model (P1-WU07)
+8. D4 Vault / encryption architecture (P1-WU08)
+9. D5 Authentication / identity approach (P1-WU09)
 
-Implementation of scaffolding should wait until at least D1, D2, D9 are Approved.  
-Vault prototype implementation should wait until D3, D4, D6, D7 are Approved.  
-Auth skeleton should wait until D5 and D6 are Approved.
+Implementation work units (hard gates):
+
+- Scaffolding (P1-WU10) waits until D1, D2, D9 are Approved.
+- Vault prototype (P1-WU11) waits until D3, D4, D6, D7 are Approved and WU10 is Complete.
+- Auth skeleton (P1-WU12) waits until D5 and D6 are Approved and WU10 is Complete.
 
 ---
 
 ## Summary table
 
-| ID | Decision | Status | ADR |
-|----|----------|--------|-----|
-| D1 | Technology stack | Unresolved | — |
-| D2 | Repository / application architecture | Unresolved | — |
-| D3 | Core data model | Unresolved | — |
-| D4 | Vault / encryption architecture | Unresolved | — |
-| D5 | Authentication / identity approach | Unresolved | — |
-| D6 | Threat model | **Proposed** | [ADR-0001](adr/0001-threat-model.md) |
-| D7 | Privacy / data-handling model | **Proposed** | [ADR-0002](adr/0002-privacy-data-handling-model.md) |
-| D8 | Testing strategy | Unresolved | — |
-| D9 | Development / build environment | Unresolved | — |
+| ID | Decision | Status | Work unit | ADR |
+|----|----------|--------|-----------|-----|
+| D1 | Technology stack | Unresolved | P1-WU03 | — |
+| D2 | Repository / application architecture | Unresolved | P1-WU04 | — |
+| D3 | Core data model | Unresolved | P1-WU07 | — |
+| D4 | Vault / encryption architecture | Unresolved | P1-WU08 | — |
+| D5 | Authentication / identity approach | Unresolved | P1-WU09 | — |
+| D6 | Threat model | **Proposed** | P1-WU01 | [ADR-0001](adr/0001-threat-model.md) |
+| D7 | Privacy / data-handling model | **Proposed** | P1-WU02 | [ADR-0002](adr/0002-privacy-data-handling-model.md) |
+| D8 | Testing strategy | Unresolved | P1-WU06 | — |
+| D9 | Development / build environment | Unresolved | P1-WU05 | — |
 
-**Approved count:** 0 / 9  
+**Approved count:** 0 / 9
 **Proposed (awaiting maintainer review):** 2 / 9 (D6, D7)
 
 ---
 
-*Last updated: 2026-08-20 — ADR-0001 and ADR-0002 added as Proposed; no decisions Approved.*
+*Last updated: 2026-09-06 — linked to work-unit catalog; no decisions Approved.*
